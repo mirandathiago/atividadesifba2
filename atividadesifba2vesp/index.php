@@ -1,30 +1,29 @@
 <?php
 declare(strict_types=1);
 
+use Ifba\Core\Router;
+
 require_once "./vendor/autoload.php";
 require_once "./app/config.php";
 
 
 $url = $_GET['url'] ?? '/';
 
-$rotas = [];
-$rotas['/'] = ['HomeController','index'];
-$rotas['teste'] = ['HomeController','index'];
-$rotas['__erro'] = ['ErroController','erro404'];
-
-if( array_key_exists($url,$rotas) ){
-    [$controlador,$metodo] = $rotas[$url];
-    carregaController($controlador,$metodo);
-}else{
-    [$controlador,$metodo] = $rotas['__erro'];
-    carregaController($controlador,$metodo);
-}
-
-
-function carregaController($controlador,$metodo)
+function css($arquivo)
 {
-    $namespace = "\\Ifba\\Controller\\";
-    $nomecompleto = $namespace.$controlador;
-    $c = new $nomecompleto();
-    $c->$metodo();
+    return URL_BASE."public/css/{$arquivo}.css";
 }
+
+function url_base($url)
+{
+    return URL_BASE . $url;
+}
+
+Router::add('/','HomeController','index');
+Router::add('__erro','ErroController','erro404');
+Router::add('login','HomeController','login');
+Router::add('criarconta','HomeController','criarconta');
+Router::execute($url);
+
+
+

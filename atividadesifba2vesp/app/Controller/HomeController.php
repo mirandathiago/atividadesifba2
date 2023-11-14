@@ -14,5 +14,15 @@ class HomeController extends Controller{
         $this->view('inicial',$dados);
     }
 
+    public function login()
+    {
+        $this->view('login');
+    }
+
+    public function criarconta()
+    {
+        $this->view('criarconta');
+    }
+
 
 }

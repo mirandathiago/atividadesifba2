@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFBA ATIVIDADES - Avaliações e Trabalhos - IFBA - Campus Brumado</title>
+<?php require "topo.view.php" ?>
+<main class="principal">  
    
-</head>
-<body>
-    <h1><?=$titulo?></h1>
     <h2>Erro 404 - Página Não Encontrada</h2>
 
+</main>    
 
-</body>
-</html>
+<?php require "rodape.view.php" ?>
